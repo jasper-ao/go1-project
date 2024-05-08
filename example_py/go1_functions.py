@@ -42,7 +42,7 @@ def move(vx: float, vy: float=0, rotate: float=0): # FOR POSITIVE VALUES | vx: f
     udp.SetSend(cmd)
     udp.Send()
 
-def look(values: list): # [roll, pitch, yaw] FOR POSITIVE VALUES | roll: rotate clockwise around x-axis | pitch: look down | yaw: look left || all is (rad/s)
+def look(values: list): # [roll, pitch, yaw] FOR POSITIVE VALUES | roll: rotate clockwise around x-axis | pitch: look down | yaw: look left || all is (rad)
     cmd.mode = 1
 
     cmd.euler = values
