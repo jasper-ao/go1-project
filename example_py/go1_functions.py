@@ -51,7 +51,7 @@ def look(values: list): # [roll, pitch, yaw] FOR POSITIVE VALUES | roll: rotate 
     udp.Send()
 
 
-class audio_setup:
+class speaker_setup:
     def __init__(self) -> None:
         self.child = pexpect.spawn('ssh pi@192.168.12.1')
 
@@ -63,11 +63,11 @@ class audio_setup:
         self.child.sendline('123')
 
         self.child.sendline('cd audio')
-        self.child.sendline('echo audio setup finished')
+        self.child.sendline('echo speaker setup finished')
 
         while True:
             self.child.expect('\r\n')
-            if self.child.before == b'audio setup finished': break
+            if self.child.before == b'speaker setup finished': break
 
     def play_audio(self, file: str):
         self.child.sendline(f'aplay -D plughw:2,0 {file}')
